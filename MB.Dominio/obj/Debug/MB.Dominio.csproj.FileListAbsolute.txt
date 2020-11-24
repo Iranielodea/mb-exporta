@@ -1,0 +1,11 @@
+C:\Projetos\DotNet\MBExporta\MB.Dominio\bin\Debug\MB.Dominio.dll
+C:\Projetos\DotNet\MBExporta\MB.Dominio\bin\Debug\MB.Dominio.pdb
+C:\Projetos\DotNet\MBExporta\MB.Dominio\bin\Debug\Newtonsoft.Json.dll
+C:\Projetos\DotNet\MBExporta\MB.Dominio\bin\Debug\Refit.dll
+C:\Projetos\DotNet\MBExporta\MB.Dominio\bin\Debug\Newtonsoft.Json.xml
+C:\Projetos\DotNet\MBExporta\MB.Dominio\bin\Debug\Refit.xml
+C:\Projetos\DotNet\MBExporta\MB.Dominio\obj\Debug\MB.Dominio.csprojAssemblyReference.cache
+C:\Projetos\DotNet\MBExporta\MB.Dominio\obj\Debug\MB.Dominio.csproj.CoreCompileInputs.cache
+C:\Projetos\DotNet\MBExporta\MB.Dominio\obj\Debug\MB.Dominio.csproj.CopyComplete
+C:\Projetos\DotNet\MBExporta\MB.Dominio\obj\Debug\MB.Dominio.dll
+C:\Projetos\DotNet\MBExporta\MB.Dominio\obj\Debug\MB.Dominio.pdb

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4CDECA90-FE74-41E3-80EE-020F06A6E69A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MB.UI</RootNamespace>
+    <AssemblyName>MB.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enumerador\EnAcao.cs" />
+    <Compile Include="Enumerador\EnTabela.cs" />
+    <Compile Include="Front\FrontCliente.cs" />
+    <Compile Include="Front\FrontUsuario.cs" />
+    <Compile Include="Front\FrontVendedor.cs" />
+    <Compile Include="Front\FrontUnidade.cs" />
+    <Compile Include="Front\FrontTransportadora.cs" />
+    <Compile Include="Front\FrontProduto.cs" />
+    <Compile Include="Front\FrontPedido.cs" />
+    <Compile Include="Front\FrontGrupo.cs" />
+    <Compile Include="Front\FrontFornecedor.cs" />
+    <Compile Include="Front\FrontEmpresa.cs" />
+    <Compile Include="Front\FrontCidade.cs" />
+    <Compile Include="Front\FrontEstado.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MB.Dominio\MB.Dominio.csproj">
+      <Project>{f4399593-0a65-404a-8c49-b1a0645004d4}</Project>
+      <Name>MB.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.Infra\MB.Infra.csproj">
+      <Project>{a6a26d27-0755-4c67-92bf-7235167f400f}</Project>
+      <Name>MB.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
