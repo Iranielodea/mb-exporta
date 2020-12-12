@@ -4,33 +4,35 @@ namespace MB.Dominio.Entidades
 {
     public class PedidoItem
     {
-        [JsonProperty("CodProduto")]
+        [JsonProperty("codProduto")]
         public int Cod_Produto { get; set; }
-        [JsonProperty("NumPedido")]
+        [JsonProperty("nomeProduto")]
+        public string Desc_Produto { get; set; }
+        [JsonProperty("numPedido")]
         public int Num_Pedido { get; set; }
-        [JsonProperty("Seq")]
+        [JsonProperty("seq")]
         public int Seq { get; set; }
-        [JsonProperty("Qtde")]
+        [JsonProperty("qtde")]
         public decimal Qtde { get; set; }
-        [JsonProperty("Valor")]
+        [JsonProperty("valor")]
         public decimal Valor { get; set; }
-        [JsonProperty("ValorTotal")]
+        [JsonProperty("valorTotal")]
         public decimal Valor_Total { get; set; }
-        [JsonProperty("IdUnidade")]
-        public int Id_Unidade { get; set; }
-        [JsonProperty("CodEmpresa")]
-        public int? Cod_Empresa { get; set; }
-        [JsonProperty("PrecoVenda")]
+        [JsonProperty("siglaUn")]
+        public string Sigla { get; set; }
+        //[JsonProperty("CodEmpresa")]
+        //public int? Cod_Empresa { get; set; }
+        [JsonProperty("precoVenda")]
         public decimal Preco_Venda { get; set; }
-        [JsonProperty("ValorLucro")]
+        [JsonProperty("valorLucro")]
         public decimal Valor_Lucro { get; set; }
-        [JsonProperty("TotalLucro")]
+        [JsonProperty("totalLucro")]
         public decimal Total_Lucro { get; set; }
-        [JsonProperty("TotalVenda")]
+        [JsonProperty("totalVenda")]
         public decimal Total_Venda { get; set; }
-        [JsonProperty("UsuInc")]
-        public string Usu_Inc { get; set; }
-        [JsonProperty("UsuAlt")]
-        public string Usu_Alt { get; set; }
+        //[JsonProperty("UsuInc")]
+        //public string Usu_Inc { get; set; }
+        //[JsonProperty("UsuAlt")]
+        //public string Usu_Alt { get; set; }
     }
 }

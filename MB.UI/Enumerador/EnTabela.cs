@@ -14,6 +14,7 @@
         TRANSPORTADOR = 10,
         UNIDADE = 11,
         VENDEDOR = 12,
-        USUARIO = 13
+        USUARIO = 13,
+        PEDIDO_ITEM = 14
     }
 }

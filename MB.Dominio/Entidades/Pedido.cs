@@ -5,8 +5,10 @@ using System.Collections.Generic;
 
 namespace MB.Dominio.Entidades
 {
-    public class Pedido : EntidadeBase
+    public class Pedido
     {
+        [JsonProperty("id")]
+        public int Id { get; set; }
         [JsonProperty("numPedido")]
         public int Num_Pedido { get; set; }
         [JsonProperty("data")]
@@ -33,7 +35,8 @@ namespace MB.Dominio.Entidades
         public string Obs { get; set; }
         //[JsonProperty("CodContato")]
         //public int? Cod_Contato { get; set; }
-
+        [JsonProperty("nomeCliente")]
+        public string Nome_Cliente { get; set; }
         [JsonProperty("nomeContato")]
         public string Nome_Contato { get; set; }
         [JsonProperty("percComissao")]

@@ -1,12 +1,10 @@
 ﻿using MB.Dominio.Entidades;
-using MB.Dominio.Interfaces.API;
 using MB.Dominio.Interfaces.Repositorio;
 using MB.Dominio.Interfaces.Servico;
 using MB.Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Transactions;
 
 namespace MB.Dominio.Servicos
 {
@@ -23,10 +21,26 @@ namespace MB.Dominio.Servicos
 
         public override async void ExportNetAsync()
         {
+            ExportarDados("01.01.2000", "01.01.2000");
+        }
+
+        private void ExportarDados(string dataInicial, string dataFinal)
+        {
             _url = _controller;
 
-            var lista = _repositorio.Filtrar("01.01.2000", "31.01.2000")
-                .ToList();
+            var lista = new List<Pedido>();
+            dataInicial = "01.01.2010";
+            dataFinal = "31.12.2010";
+            //var lista = _repositorio.Filtrar("01.01.2010", "31.12.2010") //.Where(x => x.Num_Pedido == 4632 || x.Num_Pedido == 4633)
+            //    .ToList();
+
+            if (string.IsNullOrWhiteSpace(dataInicial))
+                lista = _repositorio.GetAll().ToList();
+            else
+            {
+                lista = _repositorio.Filtrar(dataInicial, dataFinal)
+                    .ToList();
+            }
 
             foreach (var pedido in lista)
             {
@@ -43,13 +57,14 @@ namespace MB.Dominio.Servicos
 
             try
             {
-                var retorno = new ServicoJson<Pedido[]>().Insert(_url, lista);
-                if (retorno.mensagem != "OK")
-                    Funcoes.GravarArquivo(nomeArquivo, retorno.mensagem);
+                //var retorno = new ServicoJson<Pedido[]>().Insert(_url, lista);
+                //if (retorno.mensagem != "OK")
+                //    Funcoes.GravarArquivo(nomeArquivo, retorno.mensagem);
             }
             catch (Exception ex)
             {
                 Funcoes.GravarArquivo(nomeArquivo, ex.Message);
+                //Console.WriteLine(ex.Message);
             }
         }
 
@@ -62,6 +77,11 @@ namespace MB.Dominio.Servicos
         public async override void ExcluirNet(IEnumerable<Pedido> entidades)
         {
             //await _api.Excluir(entidades.ToList());
+        }
+
+        public void Exportar(string dataInicial, string dataFinal)
+        {
+            ExportarDados(dataInicial, dataFinal);
         }
     }
 }

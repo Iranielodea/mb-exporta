@@ -12,19 +12,7 @@ namespace MB.Infra.DataBase
     {
         IDbConnection _connection = null;
         UnitOfWork _unitOfWork = null;
-        private readonly string connection =
-        "User=SYSDBA;" +
-        "Password=masterkey;" +
-        "Database=C:\\Clientes\\MB\\loja.fdb;" +
-        "DataSource=localhost;" +
-        "Port=3050;" +
-        "Dialect=3;" +
-        "Charset=NONE;" +
-        "Role=;" +
-        "Connection lifetime=15;" +
-        "Pooling=true;" +
-        "Packet Size=8192;" +
-        "ServerType=0";
+        private string connection = "";
 
         public DalSession()
         {
@@ -32,10 +20,22 @@ namespace MB.Infra.DataBase
             //    + ";User ID=" + usuario
             //    + ";Password=" + password;
 
+            connection = RetornarStringConexao();
             _connection = new FbConnection(connection);
             if (_connection.State == ConnectionState.Closed)
                 _connection.Open();
             _unitOfWork = new UnitOfWork(_connection);
+        }
+
+        private string RetornarStringConexao()
+        {
+            if (!System.IO.File.Exists("Conexao.txt"))
+                throw new Exception("Aquivo de Conexão não encontrado");
+
+            connection = System.IO.File.ReadAllText("Conexao.txt");
+            //connection = "User=SYSDBA;Password=masterkey;Database=C:\\Clientes\\MB\\loja.fdb;DataSource=localhost;" +
+            //    "Port=3050;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;Pooling=true;Packet Size=8192;ServerType=0";
+            return connection;
         }
 
         public UnitOfWork UnitOfWork
@@ -84,6 +84,9 @@ namespace MB.Infra.DataBase
         //=====================================================================
         private IServicoUsuario _servicoUsuario;
         public IServicoUsuario ServicoUsuario => _servicoUsuario = _servicoUsuario ?? new ServicoUsuario(new RepositorioUsuarioDapper(_unitOfWork));
+        //=====================================================================
+        private IServicoPedidoItem _servicoPedidoItem;
+        public IServicoPedidoItem ServicoPedidoItem => _servicoPedidoItem = _servicoPedidoItem ?? new ServicoPedidoItem(new RepositorioPedidoItemDapper(_unitOfWork));
         //=====================================================================
         IUnitOfWork IDalSession.UnitOfWork => new UnitOfWork(_connection);
     }

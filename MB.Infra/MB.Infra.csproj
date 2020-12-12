@@ -58,6 +58,7 @@
     <Compile Include="DataBase\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\RepositorioClienteDapper.cs" />
+    <Compile Include="Repositorio\RepositorioPedidoItemDapper.cs" />
     <Compile Include="Repositorio\RepositorioUsuarioDapper.cs" />
     <Compile Include="Repositorio\RepositorioVendedorDapper.cs" />
     <Compile Include="Repositorio\RepositorioUnidadeDapper.cs" />

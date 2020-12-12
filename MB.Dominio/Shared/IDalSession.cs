@@ -17,6 +17,7 @@ namespace MB.Dominio.Shared
         IServicoUnidade ServicoUnidade { get; }
         IServicoVendedor ServicoVendedor { get; }
         IServicoUsuario ServicoUsuario { get; }
+        IServicoPedidoItem ServicoPedidoItem { get; }
 
         void Dispose();
     }

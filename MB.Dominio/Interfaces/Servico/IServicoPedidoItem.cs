@@ -2,7 +2,7 @@
 
 namespace MB.Dominio.Interfaces.Servico
 {
-    public interface IServicoPedido : IServiceBase<Pedido>
+    public interface IServicoPedidoItem : IServiceBase<PedidoItem>
     {
         void Exportar(string dataInicial, string dataFinal);
     }

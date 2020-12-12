@@ -1,4 +1,5 @@
-﻿using MB.Infra.DataBase;
+﻿using MB.Dominio.Shared;
+using MB.Infra.DataBase;
 using MB.UI.Enumerador;
 using MB.UI.Front;
 using System;
@@ -10,16 +11,21 @@ namespace MB.UI
     {
         static void Main(string[] args)
         {
-            string _tabela = "TRANSPORTADOR";
+            string _tabela = "PEDIDO";
+            //string _tabela = "PEDIDO_ITEM";
             //string _tabela = "CLIENTE";
             string _acao = "EXPORTAR";
             string _id = "0";
+            string _dataInicial = "";
+            string _dataFinal = "";
 
             if (args.Count() > 0)
             {
                 _tabela = args[0];
                 _acao = args[1];
                 _id = args[2];
+                _dataInicial = args[3];
+                _dataFinal = args[4];
             }
 
             int.TryParse(_id, out int id);
@@ -67,7 +73,7 @@ namespace MB.UI
                         }
                     case 8:
                         {
-                            new FrontPedido().Exportar(session, enAcao, id);
+                            new FrontPedido().Exportar(session, enAcao, _dataInicial, _dataFinal, id);
                             break;
                         }
                     case 9:
@@ -95,16 +101,17 @@ namespace MB.UI
                             new FrontUsuario().Exportar(session, enAcao, id);
                             break;
                         }
+                    case 14:
+                        {
+                            new FrontPedidoItem().Exportar(session, enAcao, _dataInicial, _dataFinal, id);
+                            break;
+                        }
                 }
             }
             catch (System.Exception ex)
             {
-                throw new Exception(ex.Message);
-                //Console.WriteLine(ex.Message);
+                Funcoes.GravarArquivo("LogErro.txt", ex.Message);
             }
-            Console.WriteLine("----------- Fim --------------");
-            Console.ReadKey();
-
         }
     }
 }

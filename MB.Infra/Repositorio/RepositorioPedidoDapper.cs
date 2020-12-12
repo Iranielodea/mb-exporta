@@ -34,13 +34,57 @@ namespace MB.Infra.Repositorio
 
         public override IQueryable<Pedido> GetAll()
         {
-            var dados = new PersistenciaFactory().Instanciar();
-            string instrucaoSQL = dados.Select(new Pedido(), "PEDIDO");
+            var sb = new StringBuilder();
+            sb.AppendLine(RetornarSQL());
+            sb.AppendLine(" WHERE EXPORTARNET = 'S'");
 
-            return _uow.Connection.Query<Pedido>(instrucaoSQL, null, _uow.Transaction).AsQueryable();
+            //var dados = new PersistenciaFactory().Instanciar();
+            //string instrucaoSQL = dados.Select(new Pedido(), "PEDIDO");
+
+            return _uow.Connection.Query<Pedido>(sb.ToString(), null, _uow.Transaction).AsQueryable();
         }
 
         public IQueryable<Pedido> Filtrar(string dataInicial, string dataFinal)
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine(RetornarSQL());
+            //sb.AppendLine(" SELECT");
+            //sb.AppendLine(" PED.NUM_PEDIDO,");
+            //sb.AppendLine(" PED.DATA,");
+            //sb.AppendLine(" PED.TOTAL_BRUTO,");
+            //sb.AppendLine(" PED.PERC_DESCONTO,");
+            //sb.AppendLine(" PED.VALOR_DESCONTO,");
+            //sb.AppendLine(" PED.TOTAL_LIQUIDO,");
+            //sb.AppendLine(" PED.SITUACAO,");
+            //sb.AppendLine(" FO.nome AS NOME_FORNECEDOR,");
+            //sb.AppendLine(" CLI.nome AS NOME_CLIENTE, ");
+            //sb.AppendLine(" PED.OBS,");
+            //sb.AppendLine(" CON.nome AS NOME_CONTATO,");
+            //sb.AppendLine(" PED.PERC_COMISSAO,");
+            //sb.AppendLine(" PED.ENCERRADO,");
+            //sb.AppendLine(" PED.TOTAL_VENDA,");
+            //sb.AppendLine(" PED.TOTAL_LUCRO,");
+            //sb.AppendLine(" PED.TOTAL_QTDE,");
+            //sb.AppendLine(" PED.NUM_CARGA,");
+            //sb.AppendLine(" PED.VALOR_LUCRO,");
+            //sb.AppendLine(" VEN.nome AS NOME_VENDEDOR,");
+            //sb.AppendLine(" PED.VALOR_COMISSAO,");
+            //sb.AppendLine(" PED.TOTAL_COMISSAO,");
+            //sb.AppendLine(" USI.NOME AS NOME_USINA");
+
+            //sb.AppendLine(" FROM PEDIDO PED");
+            //sb.AppendLine(" LEFT JOIN CLIENTE CLI ON PED.cod_cliente = CLI.cod_cliente");
+            //sb.AppendLine(" LEFT JOIN FORNECEDOR FO ON PED.cod_for = FO.cod_for");
+            //sb.AppendLine(" LEFT JOIN CLIENTE CON ON PED.cod_contato = CON.cod_cliente");
+            //sb.AppendLine(" LEFT JOIN VENDEDOR VEN ON PED.cod_vendedor = VEN.cod_vendedor");
+            //sb.AppendLine(" LEFT JOIN FORNECEDOR USI ON PED.cod_usina = USI.cod_For");
+            sb.AppendLine($" WHERE PED.DATA BETWEEN '{dataInicial}' and '{dataFinal}'");
+
+            return _uow.Connection.Query<Pedido>(sb.ToString(), null, _uow.Transaction).AsQueryable();
+        }
+
+        private string RetornarSQL()
         {
             var sb = new StringBuilder();
 
@@ -69,14 +113,12 @@ namespace MB.Infra.Repositorio
             sb.AppendLine(" USI.NOME AS NOME_USINA");
 
             sb.AppendLine(" FROM PEDIDO PED");
-            sb.AppendLine(" INNER JOIN CLIENTE CLI ON PED.cod_cliente = CLI.cod_cliente");
+            sb.AppendLine(" LEFT JOIN CLIENTE CLI ON PED.cod_cliente = CLI.cod_cliente");
             sb.AppendLine(" LEFT JOIN FORNECEDOR FO ON PED.cod_for = FO.cod_for");
             sb.AppendLine(" LEFT JOIN CLIENTE CON ON PED.cod_contato = CON.cod_cliente");
             sb.AppendLine(" LEFT JOIN VENDEDOR VEN ON PED.cod_vendedor = VEN.cod_vendedor");
-            sb.AppendLine(" LEFT JOIN CLIENTE USI ON PED.cod_usina = USI.cod_cliente");
-            sb.AppendLine($" WHERE PED.DATA BETWEEN '{dataInicial}' and '{dataFinal}'");
-
-            return _uow.Connection.Query<Pedido>(sb.ToString(), null, _uow.Transaction).AsQueryable();
+            sb.AppendLine(" LEFT JOIN FORNECEDOR USI ON PED.cod_usina = USI.cod_For");
+            return sb.ToString();
         }
 
         public override void Update(Pedido entidade)
