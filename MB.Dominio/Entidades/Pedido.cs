@@ -65,6 +65,9 @@ namespace MB.Dominio.Entidades
         public decimal Total_Comissao { get; set; }
         [JsonProperty("nomeUsina")]
         public string Nome_Usina { get; set; }
+        //[JsonProperty("token")]
+        //public string Token { get; set; }
+
         //[JsonProperty("CodUsina")]
         //public int? Cod_Usina { get; set; }
 

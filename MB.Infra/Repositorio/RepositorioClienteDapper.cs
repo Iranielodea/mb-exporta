@@ -26,9 +26,9 @@ namespace MB.Infra.Repositorio
         {
             string instrucaoSQL = "";
             if (id > 0)
-                instrucaoSQL = $"UPDATE CLIENTE SET EXPORTARNET = 'N' WHERE Cod_Cliente = {id}";
+                instrucaoSQL = $"UPDATE CLIENTE SET EXPORTAR_NET = 'N' WHERE Cod_Cliente = {id}";
             else
-                instrucaoSQL = $"UPDATE CLIENTE SET EXPORTARNET = 'N' WHERE EXPORTARNET = 'S'";
+                instrucaoSQL = $"UPDATE CLIENTE SET EXPORTAR_NET = 'N' WHERE EXPORTAR_NET = 'S'";
             _uow.Connection.Execute(instrucaoSQL, null, _uow.Transaction);
         }
 
@@ -63,6 +63,7 @@ namespace MB.Infra.Repositorio
 
             sb.AppendLine(" LEFT JOIN CIDADE CID ON CLI.COD_CIDADE = CID.COD_CIDADE");
             sb.AppendLine(" LEFT JOIN ESTADO EST ON CID.ID_ESTADO = EST.ID_ESTADO");
+            sb.AppendLine(" WHERE CLI.EXPORTAR_NET = 'S'");
             
 
             return _uow.Connection.Query<Cliente>(sb.ToString(), null, _uow.Transaction).AsQueryable();

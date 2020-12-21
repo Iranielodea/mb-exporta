@@ -29,8 +29,8 @@ namespace MB.Dominio.Servicos
             _url = _controller;
 
             var lista = new List<Pedido>();
-            dataInicial = "01.01.2010";
-            dataFinal = "31.12.2010";
+            //dataInicial = "01.01.2010";
+            //dataFinal = "31.12.2010";
             //var lista = _repositorio.Filtrar("01.01.2010", "31.12.2010") //.Where(x => x.Num_Pedido == 4632 || x.Num_Pedido == 4633)
             //    .ToList();
 
@@ -49,6 +49,7 @@ namespace MB.Dominio.Servicos
                 pedido.Nome_Usina = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Nome_Usina);
                 pedido.Nome_Vendedor = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Nome_Vendedor);
                 pedido.Obs = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Obs);
+                //pedido.Data = DateTime.Parse("01/01/2015");
             }
 
             string nomeArquivo = "Pedido.txt";
@@ -57,9 +58,11 @@ namespace MB.Dominio.Servicos
 
             try
             {
-                //var retorno = new ServicoJson<Pedido[]>().Insert(_url, lista);
-                //if (retorno.mensagem != "OK")
-                //    Funcoes.GravarArquivo(nomeArquivo, retorno.mensagem);
+                var retorno = new ServicoJson<Pedido[]>().Insert(_url, lista);
+                if (retorno.mensagem != "OK")
+                    Funcoes.GravarArquivo(nomeArquivo, retorno.mensagem);
+
+                //_repositorio.AtualizarTabelaExportada();
             }
             catch (Exception ex)
             {

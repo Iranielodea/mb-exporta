@@ -24,7 +24,7 @@ namespace MB.Dominio.Servicos
             _url = _controller;
 
             //var lista = _repositorio.GetAll().Where(x => x.ExportarNet == "S").ToList();
-            var lista = _repositorio.GetAll().Where(x => x.Cod_Trans == 2);
+            var lista = _repositorio.GetAll();
 
             foreach (var tra in lista)
             {
@@ -50,6 +50,7 @@ namespace MB.Dominio.Servicos
             {
                 Funcoes.GravarArquivo(nomeArquivo, ex.Message);
             }
+            _repositorio.AtualizarTabelaExportada();
         }
 
         public override void ExcluirNet(int id)

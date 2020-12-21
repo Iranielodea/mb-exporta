@@ -11,13 +11,19 @@ namespace MB.UI
     {
         static void Main(string[] args)
         {
-            string _tabela = "PEDIDO";
-            //string _tabela = "PEDIDO_ITEM";
-            //string _tabela = "CLIENTE";
-            string _acao = "EXPORTAR";
-            string _id = "0";
+            string _tabela = "";
+            string _acao = "";
             string _dataInicial = "";
             string _dataFinal = "";
+            string _id = "0";
+
+            //_tabela = "TRANSPORTADOR";
+            //_tabela = "PEDIDO_ITEM";
+            //string _tabela = "CLIENTE";
+            //_acao = "EXPORTAR";
+            //_id = "0";
+            //string _dataInicial = "01.01.2015";
+            //string _dataFinal = "10.01.2015";
 
             if (args.Count() > 0)
             {
@@ -28,14 +34,37 @@ namespace MB.UI
                 _dataFinal = args[4];
             }
 
+            if (_tabela.Trim() == "")
+                return;
+
             int.TryParse(_id, out int id);
             EnTabela.TryParse(_tabela, out EnTabela enTabela);
             EnAcao.TryParse(_acao, out EnAcao enAcao);
-
-            var session = new DalSession();
+            
             //enAcao = EnAcao.EXPORTAR;
 
             int tabela = (int)enTabela;
+
+            //if (!string.IsNullOrWhiteSpace(_dataInicial))
+            //    Console.WriteLine("Data Inicial informada");
+            //else
+            //    Console.WriteLine("Data Inicial não Informada");
+
+            //Console.WriteLine("Tabela: " + _tabela);
+            //Console.WriteLine("Acao: " + _acao);
+            //Console.WriteLine("ID: " + _id);
+
+            //Console.ReadKey();
+
+            //return;
+
+            if (_tabela.Trim() == "")
+                return;
+
+            if (_acao.Trim() == "")
+                return;
+
+            var session = new DalSession();
 
             try
             {

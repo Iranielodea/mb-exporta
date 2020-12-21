@@ -26,9 +26,9 @@ namespace MB.Infra.Repositorio
         {
             string instrucaoSQL = "";
             if (id > 0)
-                instrucaoSQL = $"UPDATE TRANSPORTADORA SET EXPORTARNET = 'N' WHERE Cod_Trans = {id}";
+                instrucaoSQL = $"UPDATE TRANSPORTADORA SET EXPORTAR_NET = 'N' WHERE Cod_Trans = {id}";
             else
-                instrucaoSQL = $"UPDATE TRANSPORTADORA SET EXPORTARNET = 'N' WHERE EXPORTARNET = 'S'";
+                instrucaoSQL = $"UPDATE TRANSPORTADORA SET EXPORTAR_NET = 'N' WHERE EXPORTAR_NET = 'S'";
             _uow.Connection.Execute(instrucaoSQL, null, _uow.Transaction);
         }
 
@@ -64,6 +64,7 @@ namespace MB.Infra.Repositorio
             sb.AppendLine(" FROM TRANSPORTADOR TRA");
             sb.AppendLine(" LEFT JOIN CIDADE CID ON TRA.COD_CIDADE = CID.COD_CIDADE");
             sb.AppendLine(" LEFT JOIN ESTADO EST ON CID.ID_ESTADO = EST.ID_ESTADO");
+            sb.AppendLine(" WHERE TRA.EXPORTAR_NET = 'S'");
 
             return _uow.Connection.Query<Transportadora>(sb.ToString(), null, _uow.Transaction).AsQueryable();
         }

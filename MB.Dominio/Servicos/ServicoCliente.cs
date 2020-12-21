@@ -58,7 +58,8 @@ namespace MB.Dominio.Servicos
                 {
                     Funcoes.GravarArquivo(nomeArquivo, ex.Message);
                 }
-                //_repositorio.AtualizarTabelaExportada();
+
+                _repositorio.AtualizarTabelaExportada();
 
                 db.Complete();
             }

@@ -39,8 +39,8 @@ namespace MB.Dominio.Servicos
         {
             _url = _controller;
 
-            dataInicial = "01.01.2010";
-            dataFinal = "31.12.2010";
+            //dataInicial = "01.01.2010";
+            //dataFinal = "31.12.2010";
 
             var lista = new List<PedidoItem>();
 
@@ -64,9 +64,11 @@ namespace MB.Dominio.Servicos
 
             try
             {
-                //var retorno = new ServicoJson<PedidoItem[]>().Insert(_url, lista);
-                //if (retorno.mensagem != "OK")
-                //    Funcoes.GravarArquivo(nomeArquivo, retorno.mensagem);
+                var retorno = new ServicoJson<PedidoItem[]>().Insert(_url, lista);
+                if (retorno.mensagem != "OK")
+                    Funcoes.GravarArquivo(nomeArquivo, retorno.mensagem);
+
+                _repositorio.AtualizarTabelaExportada();
             }
             catch (Exception ex)
             {
