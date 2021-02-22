@@ -15,6 +15,9 @@
         UNIDADE = 11,
         VENDEDOR = 12,
         USUARIO = 13,
-        PEDIDO_ITEM = 14
+        PEDIDO_ITEM = 14,
+        CONTA_BANCO = 15,
+        CARGA = 16,
+        CONTAS = 17
     }
 }

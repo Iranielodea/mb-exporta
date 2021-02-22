@@ -24,16 +24,20 @@ namespace MB.Dominio.Servicos
             _url = _controller;
 
             //var lista = _repositorio.GetAll().Where(x => x.ExportarNet == "S").ToList();
-            var lista = _repositorio.GetAll();
-
             string nomeArquivo = "Grupo.txt";
-            if (lista.Count() > 0)
-                nomeArquivo = "Grupo" + lista.FirstOrDefault().Cod_Grupo + ".txt";
+
             try
             {
+                var lista = _repositorio.GetAll();
+
+                
+                if (lista.Count() > 0)
+                    nomeArquivo = "Grupo" + lista.FirstOrDefault().Cod_Grupo + ".txt";
+
                 var retorno = new ServicoJson<Grupo[]>().Insert(_url, lista);
-                if (retorno.mensagem != "OK")
-                    Funcoes.GravarArquivo(nomeArquivo, retorno.mensagem);
+                //if (retorno.mensagem != "OK")
+                //    Funcoes.GravarArquivo(nomeArquivo, retorno.mensagem);
+                Funcoes.GravarArquivo(nomeArquivo, lista.FirstOrDefault().Desc_Grupo);
             }
             catch(Exception ex)
             {

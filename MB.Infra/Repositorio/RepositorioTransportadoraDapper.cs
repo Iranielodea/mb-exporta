@@ -26,9 +26,9 @@ namespace MB.Infra.Repositorio
         {
             string instrucaoSQL = "";
             if (id > 0)
-                instrucaoSQL = $"UPDATE TRANSPORTADORA SET EXPORTAR_NET = 'N' WHERE Cod_Trans = {id}";
+                instrucaoSQL = $"UPDATE TRANSPORTADOR SET EXPORTAR_NET = 'N' WHERE Cod_Trans = {id}";
             else
-                instrucaoSQL = $"UPDATE TRANSPORTADORA SET EXPORTAR_NET = 'N' WHERE EXPORTAR_NET = 'S'";
+                instrucaoSQL = $"UPDATE TRANSPORTADOR SET EXPORTAR_NET = 'N' WHERE EXPORTAR_NET = 'S'";
             _uow.Connection.Execute(instrucaoSQL, null, _uow.Transaction);
         }
 
@@ -51,7 +51,7 @@ namespace MB.Infra.Repositorio
             sb.AppendLine(" TRA.FONE2,");
             sb.AppendLine(" TRA.INSC_ESTADUAL,");
             sb.AppendLine(" TRA.NOME,");
-            sb.AppendLine(" CID.DESC_CIDADE,");
+            sb.AppendLine(" CID.DESC_CIDADE as NOMECIDADE,");
             sb.AppendLine(" EST.SIGLA AS UF,");
             sb.AppendLine(" TRA.OBS,");
             sb.AppendLine(" TRA.DDD,");

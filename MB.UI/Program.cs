@@ -2,7 +2,6 @@
 using MB.Infra.DataBase;
 using MB.UI.Enumerador;
 using MB.UI.Front;
-using System;
 using System.Linq;
 
 namespace MB.UI
@@ -17,13 +16,13 @@ namespace MB.UI
             string _dataFinal = "";
             string _id = "0";
 
-            //_tabela = "TRANSPORTADOR";
-            //_tabela = "PEDIDO_ITEM";
+
+            //_tabela = "GRUPO";
             //string _tabela = "CLIENTE";
             //_acao = "EXPORTAR";
             //_id = "0";
-            //string _dataInicial = "01.01.2015";
-            //string _dataFinal = "10.01.2015";
+            //_dataInicial = "01.11.2020";
+            //_dataFinal = "30.11.2020";
 
             if (args.Count() > 0)
             {
@@ -133,6 +132,16 @@ namespace MB.UI
                     case 14:
                         {
                             new FrontPedidoItem().Exportar(session, enAcao, _dataInicial, _dataFinal, id);
+                            break;
+                        }
+                    case 15:
+                        {
+                            new FrontContaBanco().Exportar(session, enAcao, id);
+                            break;
+                        }
+                    case 16:
+                        {
+                            new FrontCarga().Exportar(session, enAcao, _dataInicial, _dataFinal, id);
                             break;
                         }
                 }

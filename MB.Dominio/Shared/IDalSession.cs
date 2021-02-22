@@ -18,6 +18,9 @@ namespace MB.Dominio.Shared
         IServicoVendedor ServicoVendedor { get; }
         IServicoUsuario ServicoUsuario { get; }
         IServicoPedidoItem ServicoPedidoItem { get; }
+        IServicoContaBanco ServicoContaBanco { get; }
+        IServicoCarga ServicoCarga { get; }
+        IServicoContas ServicoContas { get; }
 
         void Dispose();
     }

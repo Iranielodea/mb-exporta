@@ -49,6 +49,8 @@ namespace MB.Infra.DataBase
             _connection.Dispose();
         }
 
+        IUnitOfWork IDalSession.UnitOfWork => new UnitOfWork(_connection);
+        //=====================================================================
         private IServicoCidade _servicoCidade;
         public IServicoCidade ServicoCidade => _servicoCidade = _servicoCidade ?? new ServicoCidade(new RepositorioCidadeDapper(_unitOfWork));
         //=====================================================================
@@ -88,6 +90,15 @@ namespace MB.Infra.DataBase
         private IServicoPedidoItem _servicoPedidoItem;
         public IServicoPedidoItem ServicoPedidoItem => _servicoPedidoItem = _servicoPedidoItem ?? new ServicoPedidoItem(new RepositorioPedidoItemDapper(_unitOfWork));
         //=====================================================================
-        IUnitOfWork IDalSession.UnitOfWork => new UnitOfWork(_connection);
+        private IServicoContaBanco _servicoContaBanco;
+        public IServicoContaBanco ServicoContaBanco => _servicoContaBanco = _servicoContaBanco ?? new ServicoContaBanco(new RepositorioContaBancoDapper(_unitOfWork));
+        //=====================================================================
+        private IServicoCarga _servicoCarga;
+        public IServicoCarga ServicoCarga => _servicoCarga = _servicoCarga ?? new ServicoCarga(new RepositorioCargaDapper(_unitOfWork));
+        //=====================================================================
+        private IServicoContas _servicoContas;
+        public IServicoContas ServicoContas => _servicoContas = _servicoContas ?? new ServicoContas(new RepositorioContasDapper(_unitOfWork));
+        //=====================================================================
+
     }
 }

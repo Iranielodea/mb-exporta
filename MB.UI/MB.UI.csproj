@@ -46,7 +46,10 @@
     <Compile Include="Enumerador\EnAcao.cs" />
     <Compile Include="Enumerador\EnTabela.cs" />
     <Compile Include="Front\FrontCliente.cs" />
+    <Compile Include="Front\FrontCarga.cs" />
+    <Compile Include="Front\FrontContas.cs" />
     <Compile Include="Front\FrontPedidoItem.cs" />
+    <Compile Include="Front\FrontContaBanco.cs" />
     <Compile Include="Front\FrontUsuario.cs" />
     <Compile Include="Front\FrontVendedor.cs" />
     <Compile Include="Front\FrontUnidade.cs" />

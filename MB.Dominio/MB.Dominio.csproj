@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Carga.cs" />
+    <Compile Include="Entidades\Contas.cs" />
+    <Compile Include="Entidades\ContaBanco.cs" />
     <Compile Include="Entidades\Cidade.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Empresa.cs" />
@@ -77,6 +80,9 @@
     <Compile Include="Interfaces\API\ApiEmpresa.cs" />
     <Compile Include="Interfaces\API\ApiEstado.cs" />
     <Compile Include="Interfaces\API\ApiCidade.cs" />
+    <Compile Include="Interfaces\Repositorio\IRepositorioContaBanco.cs" />
+    <Compile Include="Interfaces\Repositorio\IRepositorioCarga.cs" />
+    <Compile Include="Interfaces\Repositorio\IRepositorioContas.cs" />
     <Compile Include="Interfaces\Repositorio\IRepositorioPedidoItem.cs" />
     <Compile Include="Interfaces\Repositorio\IRepositorioUsuario.cs" />
     <Compile Include="Interfaces\Repositorio\IRepositorioVendedor.cs" />
@@ -93,6 +99,9 @@
     <Compile Include="Interfaces\Repositorio\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Servico\IServiceBase.cs" />
     <Compile Include="Interfaces\Servico\IServicoCliente.cs" />
+    <Compile Include="Interfaces\Servico\IServicoContaBanco.cs" />
+    <Compile Include="Interfaces\Servico\IServicoCarga.cs" />
+    <Compile Include="Interfaces\Servico\IServicoContas.cs" />
     <Compile Include="Interfaces\Servico\IServicoPedidoItem.cs" />
     <Compile Include="Interfaces\Servico\IServicoUsuario.cs" />
     <Compile Include="Interfaces\Servico\IServicoVendedor.cs" />
@@ -108,7 +117,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\ServiceBase.cs" />
     <Compile Include="Servicos\ServicoCliente.cs" />
+    <Compile Include="Servicos\ServicoCarga.cs" />
+    <Compile Include="Servicos\ServicoContas.cs" />
     <Compile Include="Servicos\ServicoPedidoItem.cs" />
+    <Compile Include="Servicos\ServicoContaBanco.cs" />
     <Compile Include="Servicos\ServicoUsuario.cs" />
     <Compile Include="Servicos\ServicoJson.cs" />
     <Compile Include="Servicos\ServicoVendedor.cs" />

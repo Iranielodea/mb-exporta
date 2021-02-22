@@ -28,7 +28,7 @@ namespace MB.Dominio.Servicos
 
             foreach (var tra in lista)
             {
-                tra.Nome_Banco = "nao tem";
+                tra.Nome_Banco = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.Nome_Banco);
                 tra.Nome = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.Nome);
                 tra.Endereco = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.Endereco);
                 tra.Bairro = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.Bairro);

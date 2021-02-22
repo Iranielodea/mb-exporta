@@ -8,13 +8,13 @@ using System.Linq;
 
 namespace MB.Dominio.Servicos
 {
-    public class ServicoPedido : ServiceBase<Pedido>, IServicoPedido
+    public class ServicoContas : ServiceBase<Contas>, IServicoContas
     {
-        private readonly IRepositorioPedido _repositorio;
-        private readonly string _controller = "/pedido";
+        private readonly IRepositorioContas _repositorio;
+        private readonly string _controller = "/contas";
         private string _url = "";
 
-        public ServicoPedido(IRepositorioPedido repositorio) : base(repositorio)
+        public ServicoContas(IRepositorioContas repositorio) : base(repositorio)
         {
             _repositorio = repositorio;
         }
@@ -28,7 +28,7 @@ namespace MB.Dominio.Servicos
         {
             _url = _controller;
 
-            var lista = new List<Pedido>();
+            var lista = new List<Contas>();
             //dataInicial = "01.01.2010";
             //dataFinal = "31.12.2010";
             //var lista = _repositorio.Filtrar("01.01.2010", "31.12.2010") //.Where(x => x.Num_Pedido == 4632 || x.Num_Pedido == 4633)
@@ -42,23 +42,23 @@ namespace MB.Dominio.Servicos
                     .ToList();
             }
 
-            foreach (var pedido in lista)
+            foreach (var conta in lista)
             {
-                pedido.Nome_Contato = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Nome_Contato);
-                pedido.Nome_Fornecedor = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Nome_Fornecedor);
-                pedido.Nome_Usina = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Nome_Usina);
-                pedido.Nome_Vendedor = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Nome_Vendedor);
-                pedido.Obs = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Obs);
+                conta.Desc_Pagto = Funcoes.ObterStringSemAcentosECaracteresEspeciais(conta.Desc_Pagto);
+                conta.Documento = Funcoes.ObterStringSemAcentosECaracteresEspeciais(conta.Documento);
+                conta.Nome_Cliente = Funcoes.ObterStringSemAcentosECaracteresEspeciais(conta.Nome_Cliente);
+                conta.Nome_Fornecedor = Funcoes.ObterStringSemAcentosECaracteresEspeciais(conta.Nome_Fornecedor);
+
                 //pedido.Data = DateTime.Parse("01/01/2015");
             }
 
-            string nomeArquivo = "Pedido.txt";
+            string nomeArquivo = "Contas.txt";
             if (lista.Count() > 0)
-                nomeArquivo = "Pedido" + lista.FirstOrDefault().Num_Pedido + ".txt";
+                nomeArquivo = "Conta" + lista.FirstOrDefault().id_conta + ".txt";
 
             try
             {
-                var retorno = new ServicoJson<Pedido[]>().Insert(_url, lista);
+                var retorno = new ServicoJson<Contas[]>().Insert(_url, lista);
                 if (retorno.mensagem != "OK")
                     Funcoes.GravarArquivo(nomeArquivo, retorno.mensagem);
 
@@ -73,11 +73,11 @@ namespace MB.Dominio.Servicos
 
         public override void ExcluirNet(int id)
         {
-            var cidade = _repositorio.GetAll().Where(x => x.Num_Pedido == id).ToList();
-            ExcluirNet(cidade);
+            var conta = _repositorio.GetAll().Where(x => x.id_conta == id).ToList();
+            ExcluirNet(conta);
         }
 
-        public async override void ExcluirNet(IEnumerable<Pedido> entidades)
+        public async override void ExcluirNet(IEnumerable<Contas> entidades)
         {
             //await _api.Excluir(entidades.ToList());
         }
