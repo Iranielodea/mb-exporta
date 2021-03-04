@@ -34,10 +34,20 @@ namespace MB.Infra.Repositorio
 
         public override IQueryable<ContaBanco> GetAll()
         {
-            var dados = new PersistenciaFactory().Instanciar();
-            string instrucaoSQL = dados.Select(new ContaBanco(), "CONTABANCO");
+            //var dados = new PersistenciaFactory().Instanciar();
+            //string instrucaoSQL = dados.Select(new ContaBanco(), "CONTABANCO");
 
-            return _uow.Connection.Query<ContaBanco>(instrucaoSQL, null, _uow.Transaction).AsQueryable();
+            var sb = new StringBuilder();
+            sb.AppendLine("SELECT");
+            sb.AppendLine(" Id_CONTABANCO,");
+            sb.AppendLine(" NUM_CONTA,");
+            sb.AppendLine(" AGENCIA,");
+            sb.AppendLine(" BANCO,");
+            sb.AppendLine(" ATIVO,");
+            sb.AppendLine(" CNPJ_CPF");
+            sb.AppendLine(" FROM CONTABANCO");
+
+            return _uow.Connection.Query<ContaBanco>(sb.ToString(), null, _uow.Transaction).AsQueryable();
         }
 
         public override void Update(ContaBanco entidade)

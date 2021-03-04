@@ -24,7 +24,7 @@ namespace MB.Dominio.Servicos
             _url = _controller;
 
             //var lista = _repositorio.GetAll().Where(x => x.ExportarNet == "S").ToList();
-            var lista = _repositorio.GetAll();
+            var lista = _repositorio.GetAll(); //.Where(x => x.id_ContaBanco == 1);
 
             foreach (var tra in lista)
             {

@@ -8,7 +8,7 @@ namespace MB.UI.Front
         public void Exportar(IDalSession session, EnAcao enAcao, string dataInicial, string dataFinal, int id = 0)
         {
             if (enAcao == EnAcao.EXPORTAR)
-                session.ServicoContas.Exportar(dataInicial, dataFinal);
+                session.ServicoContas.Exportar(dataInicial, dataFinal, id);
 
             if (enAcao == EnAcao.EXCLUIR)
                 session.ServicoContas.ExcluirNet(id);

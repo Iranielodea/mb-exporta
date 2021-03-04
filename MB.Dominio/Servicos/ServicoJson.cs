@@ -20,6 +20,7 @@ namespace MB.Dominio.Servicos
                 using (var client = new HttpClient())
                 {
                     var serializedObj = JsonConvert.SerializeObject(model);
+
                     var content = new StringContent(serializedObj, Encoding.UTF8, "application/json");
                     HttpResponseMessage response = client.PostAsync(uri, content).Result;
                     if (response.IsSuccessStatusCode)

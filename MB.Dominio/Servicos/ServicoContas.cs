@@ -24,9 +24,11 @@ namespace MB.Dominio.Servicos
             //ExportarDados("01.01.2000", "01.01.2000");
         }
 
-        private void ExportarDados(string dataInicial, string dataFinal)
+        private void ExportarDados(string dataInicial, string dataFinal, int id = 0)
         {
             _url = _controller;
+            if (id > 0)
+                _url = _controller + "/incluir";
 
             var lista = new List<Contas>();
             //dataInicial = "01.01.2010";
@@ -82,9 +84,9 @@ namespace MB.Dominio.Servicos
             //await _api.Excluir(entidades.ToList());
         }
 
-        public void Exportar(string dataInicial, string dataFinal)
+        public void Exportar(string dataInicial, string dataFinal, int id = 0)
         {
-            ExportarDados(dataInicial, dataFinal);
+            ExportarDados(dataInicial, dataFinal, id);
         }
     }
 }

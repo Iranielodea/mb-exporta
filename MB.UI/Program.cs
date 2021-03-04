@@ -17,9 +17,9 @@ namespace MB.UI
             string _id = "0";
 
 
-            //_tabela = "GRUPO";
+            _tabela = "CONTA_BANCO";
             //string _tabela = "CLIENTE";
-            //_acao = "EXPORTAR";
+            _acao = "EXPORTAR";
             //_id = "0";
             //_dataInicial = "01.11.2020";
             //_dataFinal = "30.11.2020";
@@ -142,6 +142,11 @@ namespace MB.UI
                     case 16:
                         {
                             new FrontCarga().Exportar(session, enAcao, _dataInicial, _dataFinal, id);
+                            break;
+                        }
+                    case 17:
+                        {
+                            new FrontContas().Exportar(session, enAcao, _dataInicial, _dataFinal, id);
                             break;
                         }
                 }

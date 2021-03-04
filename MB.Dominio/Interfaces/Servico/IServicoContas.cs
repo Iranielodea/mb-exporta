@@ -4,6 +4,6 @@ namespace MB.Dominio.Interfaces.Servico
 {
     public interface IServicoContas : IServiceBase<Contas>
     {
-        void Exportar(string dataInicial, string dataFinal);
+        void Exportar(string dataInicial, string dataFinal, int id = 0);
     }
 }
