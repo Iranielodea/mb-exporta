@@ -96,7 +96,7 @@ namespace MB.Dominio.Servicos
 
         public void Exportar(string dataInicial, string dataFinal, int id = 0)
         {
-            ExportarDados(dataInicial, dataFinal);
+            ExportarDados(dataInicial, dataFinal, id);
         }
     }
 }

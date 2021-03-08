@@ -60,7 +60,7 @@ namespace MB.Infra.Repositorio
             var sb = new StringBuilder();
 
             sb.AppendLine(" SELECT");
-            sb.AppendLine(" CON.ID_CONTA AS CODIGO,");
+            sb.AppendLine(" CON.ID_CONTA,");
             sb.AppendLine(" CON.NUM_PEDIDO,");
             sb.AppendLine(" CLI.nome AS NOME_CLIENTE, ");
             sb.AppendLine(" FO.nome AS NOME_FORNECEDOR,");

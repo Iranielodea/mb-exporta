@@ -14,6 +14,7 @@ namespace MB.Dominio.Servicos
         //public T Insert(string uri, object model)
         public Mensagem Insert(string uri, object model)
         {
+            string retorno = "";
             uri = Constantes.URL + uri;
             try
             {
@@ -25,7 +26,7 @@ namespace MB.Dominio.Servicos
                     HttpResponseMessage response = client.PostAsync(uri, content).Result;
                     if (response.IsSuccessStatusCode)
                     {
-                        var retorno = response.Content.ReadAsStringAsync().Result;
+                        retorno = response.Content.ReadAsStringAsync().Result;
                         var temp = JsonConvert.DeserializeObject<Mensagem>(retorno);
                     return temp;
                     //return T;
@@ -33,7 +34,7 @@ namespace MB.Dominio.Servicos
                     }
                     else
                     {
-                        var retorno = response.Content.ReadAsStringAsync().Result;
+                        retorno = response.Content.ReadAsStringAsync().Result;
                         var temp = JsonConvert.DeserializeObject<Mensagem>(retorno);
                         return temp;
                         //throw new Exception("Erro: " + temp.mensagem);
@@ -42,7 +43,7 @@ namespace MB.Dominio.Servicos
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(ex.Message + " : " + retorno);
             }
         }
 

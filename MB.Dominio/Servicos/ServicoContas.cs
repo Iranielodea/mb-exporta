@@ -11,7 +11,7 @@ namespace MB.Dominio.Servicos
     public class ServicoContas : ServiceBase<Contas>, IServicoContas
     {
         private readonly IRepositorioContas _repositorio;
-        private readonly string _controller = "/contas";
+        private readonly string _controller = "/conta";
         private string _url = "";
 
         public ServicoContas(IRepositorioContas repositorio) : base(repositorio)

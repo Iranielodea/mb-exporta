@@ -5,7 +5,15 @@ namespace MB.Dominio.Entidades
 {
     public class Carga
     {
-        [JsonProperty("Codigo")]
+        public Carga()
+        {
+            Id = 0;
+        }
+
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        [JsonProperty("codigo")]
         public int Id_Carga { get; set; }
 
         [JsonProperty("nomeCliente")]

@@ -68,12 +68,12 @@ namespace MB.Infra.Repositorio
             sb.AppendLine(" CAR.DATA,");
             sb.AppendLine(" CAR.VISTO,");
             sb.AppendLine(" CAR.QTDE,");
-            sb.AppendLine(" CAR.TOTAL_PEDIDO,");
+            sb.AppendLine(" CAR.VALOR_PEDIDO,");
             sb.AppendLine(" CAR.VALOR_CARREGA,");
             sb.AppendLine(" CAR.VALOR_FRETE,");
             sb.AppendLine(" FO.NOME AS NOME_FORNECEDOR,");
             sb.AppendLine(" MOT.NOME AS NOME_MOTORISTA,");
-            sb.AppendLine(" ''.NOME_AGENCIA,");
+            sb.AppendLine(" '' AS NOME_AGENCIA,");
             sb.AppendLine(" CAR.QTDE_PEDIDO,");
             sb.AppendLine(" CAR.PLACA,");
             sb.AppendLine(" CAR.OBS,");
@@ -82,7 +82,7 @@ namespace MB.Infra.Repositorio
             sb.AppendLine(" CAR.COMPLEMENTO,");
             sb.AppendLine(" CAR.CONTATO_INDICACAO,");
             sb.AppendLine(" CAR.SALDO,");
-            sb.AppendLine(" CAR.ARAMAZEN,");
+            sb.AppendLine(" CAR.ARMAZEM,");
             sb.AppendLine(" CAR.UNIDADE,");
             sb.AppendLine(" CAR.COMPLUNIDADE,");
             sb.AppendLine(" CAR.OBS2,");
@@ -92,7 +92,7 @@ namespace MB.Infra.Repositorio
             sb.AppendLine(" CAR.QTDE_CADA,");
             sb.AppendLine(" UNI.SIGLA AS SIGLA_UNIDADE,");
             sb.AppendLine(" BAN.AGENCIA AS AGENCIA_BANCO,");
-            sb.AppendLine(" CAR.CPF_CNPJ,");
+            sb.AppendLine(" CAR.CNPJ_CPF,");
             sb.AppendLine(" CAR.CREDITO_NF,");
             sb.AppendLine(" CAR.NUM_NOTA2,");
             sb.AppendLine(" CAR.IR,");
@@ -103,10 +103,11 @@ namespace MB.Infra.Repositorio
             sb.AppendLine(" LEFT JOIN CLIENTE CLI ON CAR.cod_cliente = CLI.cod_cliente");
             sb.AppendLine(" LEFT JOIN MOTORISTA MOT ON CAR.cod_motorista = MOT.cod_motorista");
             sb.AppendLine(" LEFT JOIN FORNECEDOR FO ON CAR.cod_for = FO.cod_for");
-            sb.AppendLine(" LEFT JOIN CLIENTE CON ON PED.cod_contato = CON.cod_cliente");
-            sb.AppendLine(" LEFT JOIN FORNECEDOR USI ON PED.cod_usina = USI.cod_For");
+            sb.AppendLine(" LEFT JOIN CLIENTE CON ON CAR.cod_contato = CON.cod_cliente");
+            sb.AppendLine(" LEFT JOIN FORNECEDOR USI ON CAR.cod_usina = USI.cod_For");
             sb.AppendLine(" LEFT JOIN TRANSPORTADOR MAN ON CAR.cod_manifesto = MAN.cod_trans");
             sb.AppendLine(" LEFT JOIN UNIDADE UNI ON CAR.ID_UNIDADE = UNI.ID_UNIDADE");
+            sb.AppendLine(" LEFT JOIN CONTABANCO BAN ON CAR.ID_CONTABANCO = BAN.ID_CONTABANCO");
             return sb.ToString();
         }
 

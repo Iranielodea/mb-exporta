@@ -5,6 +5,14 @@ namespace MB.Dominio.Entidades
 {
     public class Contas
     {
+        public Contas()
+        {
+            Id = 0;
+        }
+
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
         [JsonProperty("codigo")]
         public int id_conta { get; set; }
 
