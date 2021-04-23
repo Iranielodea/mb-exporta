@@ -50,7 +50,7 @@ namespace MB.Infra.Repositorio
 
             sb.AppendLine(RetornarSQL());
             sb.AppendLine($" WHERE CON.DATA_EMISSAO BETWEEN '{dataInicial}' and '{dataFinal}'");
-            //sb.AppendLine(" AND PED.NUM_PEDIDO = 3166");
+            //sb.AppendLine(" WHERE CON.ID_CONTA = 6811");
 
             return _uow.Connection.Query<Contas>(sb.ToString(), null, _uow.Transaction).AsQueryable();
         }
@@ -77,7 +77,9 @@ namespace MB.Infra.Repositorio
             sb.AppendLine(" CON.DOCUMENTO,");
             sb.AppendLine(" PAGTO.DESC_PAGTO,");
             sb.AppendLine(" CON.ID_CONTABANCO,");
-            sb.AppendLine(" CON.ID_PEDIDO");
+            sb.AppendLine(" CON.ID_PEDIDO,");
+            sb.AppendLine(" CON.COD_CLIENTE,");
+            sb.AppendLine(" CON.COD_FOR");
 
             sb.AppendLine(" FROM CONTAS CON");
             sb.AppendLine(" LEFT JOIN CLIENTE CLI ON CON.cod_cliente = CLI.cod_cliente");

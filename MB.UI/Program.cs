@@ -20,9 +20,9 @@ namespace MB.UI
             _tabela = "CONTAS";
             //string _tabela = "CLIENTE";
             _acao = "EXPORTAR";
-            //_id = "1";
-            _dataInicial = "01.02.2021";
-            _dataFinal = "01.02.2021";
+            _id = "1";
+            _dataInicial = "01.07.2010";
+            _dataFinal = "31.12.2010";
 
             if (args.Count() > 0)
             {

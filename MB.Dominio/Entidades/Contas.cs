@@ -56,7 +56,7 @@ namespace MB.Dominio.Entidades
         public string Situacao { get; set; }
 
         [JsonProperty("documento")]
-        public string Documento{ get; set; }
+        public string Documento { get; set; }
 
         [JsonProperty("nomeFormaPagto")]
         public string Desc_Pagto { get; set; }
@@ -66,5 +66,11 @@ namespace MB.Dominio.Entidades
 
         [JsonProperty("pedidoId")]
         public int? Id_Pedido { get; set; }
+
+        [JsonProperty("codCliente")]
+        public int? Cod_Cliente {get;set;}
+
+        [JsonProperty("codFor")]
+        public int Cod_For { get; set; }
     }
 }
