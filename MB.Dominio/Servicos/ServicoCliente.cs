@@ -33,7 +33,9 @@ namespace MB.Dominio.Servicos
                 var lista = _repositorio.GetAll()
                     .ToList();
 
-                foreach(var cli in lista)
+                var propriedade = new PropriedadeRef();
+
+                foreach (var cli in lista)
                 {
                     cli.Nome = Funcoes.ObterStringSemAcentosECaracteresEspeciais(cli.Nome);
                     cli.Fantasia = Funcoes.ObterStringSemAcentosECaracteresEspeciais(cli.Fantasia);
@@ -43,6 +45,8 @@ namespace MB.Dominio.Servicos
                     cli.Numero = Funcoes.ObterStringSemAcentosECaracteresEspeciais(cli.Numero);
                     cli.NomeCidade = Funcoes.ObterStringSemAcentosECaracteresEspeciais(cli.NomeCidade);
                     cli.Obs = Funcoes.ObterStringSemAcentosECaracteresEspeciais(cli.Obs);
+
+                    propriedade.GetPropertyValues(cli);
                 }
 
                 string nomeArquivo = "Cliente.txt";

@@ -25,12 +25,14 @@ namespace MB.Dominio.Servicos
 
             //var lista = _repositorio.GetAll().Where(x => x.ExportarNet == "S").ToList();
             var lista = _repositorio.GetAll(); //.Where(x => x.id_ContaBanco == 1);
-
+            var propriedade = new PropriedadeRef();
             foreach (var tra in lista)
             {
                 tra.Agencia = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.Agencia);
                 tra.Banco = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.Banco);
                 tra.Num_Conta = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.Num_Conta);
+
+                propriedade.GetPropertyValues(tra);
             }
 
             string nomeArquivo = "contaBanco.txt";

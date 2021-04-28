@@ -97,7 +97,15 @@ namespace MB.Infra.Repositorio
             sb.AppendLine(" CAR.NUM_NOTA2,");
             sb.AppendLine(" CAR.IR,");
             sb.AppendLine(" CAR.VALOR_NOTA2,");
-            sb.AppendLine(" USI.NOME AS NOME_USINA");
+            sb.AppendLine(" USI.NOME AS NOME_USINA,");
+            sb.AppendLine(" CAR.COD_CLIENTE,");
+            sb.AppendLine(" CAR.COD_FOR,");
+            sb.AppendLine(" CAR.COD_CONTATO,");
+            sb.AppendLine(" CAR.COD_MOTORISTA,");
+            sb.AppendLine(" CAR.COD_MANIFESTO,");
+            sb.AppendLine(" CAR.ID_UNIDADE,");
+            sb.AppendLine(" CAR.ID_CONTABANCO,");
+            sb.AppendLine(" CAR.COD_USINA");
 
             sb.AppendLine(" FROM CARGA CAR");
             sb.AppendLine(" LEFT JOIN CLIENTE CLI ON CAR.cod_cliente = CLI.cod_cliente");

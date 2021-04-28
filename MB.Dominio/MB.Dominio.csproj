@@ -137,6 +137,7 @@
     <Compile Include="Shared\Funcoes.cs" />
     <Compile Include="Shared\IDalSession.cs" />
     <Compile Include="Shared\IUnitOfWork.cs" />
+    <Compile Include="Shared\PropriedadeRef.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

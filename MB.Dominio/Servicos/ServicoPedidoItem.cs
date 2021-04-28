@@ -11,7 +11,7 @@ namespace MB.Dominio.Servicos
     public class ServicoPedidoItem : ServiceBase<PedidoItem>, IServicoPedidoItem
     {
         private readonly IRepositorioPedidoItem _repositorio;
-        private readonly string _controller = "/pedido-item";
+        private readonly string _controller = "/pedidoItem";
         private string _url = "";
 
         public ServicoPedidoItem(IRepositorioPedidoItem repositorio) : base(repositorio)
@@ -52,10 +52,13 @@ namespace MB.Dominio.Servicos
                     .ToList();
             }
 
+            var propriedade = new PropriedadeRef();
             foreach (var pedido in lista)
             {
                 pedido.Sigla = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Sigla);
                 pedido.Desc_Produto = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Desc_Produto);
+
+                propriedade.GetPropertyValues(pedido);
             }
 
             string nomeArquivo = "PedidoItem.txt";

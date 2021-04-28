@@ -44,12 +44,15 @@ namespace MB.Dominio.Servicos
                     .ToList();
             }
 
+            var propriedade = new PropriedadeRef();
             foreach (var conta in lista)
             {
                 conta.Desc_Pagto = Funcoes.ObterStringSemAcentosECaracteresEspeciais(conta.Desc_Pagto);
                 conta.Documento = Funcoes.ObterStringSemAcentosECaracteresEspeciais(conta.Documento);
                 conta.Nome_Cliente = Funcoes.ObterStringSemAcentosECaracteresEspeciais(conta.Nome_Cliente);
                 conta.Nome_Fornecedor = Funcoes.ObterStringSemAcentosECaracteresEspeciais(conta.Nome_Fornecedor);
+
+                propriedade.GetPropertyValues(conta);
 
                 //pedido.Data = DateTime.Parse("01/01/2015");
             }

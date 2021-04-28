@@ -4,6 +4,8 @@ namespace MB.Dominio.Entidades
 {
     public class PedidoItem
     {
+        [JsonProperty("id")]
+        public int Id { get; set; }
         [JsonProperty("codProduto")]
         public int Cod_Produto { get; set; }
         [JsonProperty("nomeProduto")]

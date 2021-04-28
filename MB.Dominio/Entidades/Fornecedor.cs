@@ -4,43 +4,44 @@ namespace MB.Dominio.Entidades
 {
     public class Fornecedor : PessoaBase
     {
-        [JsonProperty("Codigo")]
+        [JsonProperty("codigo")]
         public int Cod_For { get; set; }
-        [JsonProperty("Fantasia")]
+        [JsonProperty("fantasia")]
         public string Fantasia { get; set; }
-        [JsonProperty("Numero")]
+        [JsonProperty("numero")]
         public string Numero { get; set; }
-        [JsonProperty("Complemento")]
+        [JsonProperty("complemento")]
         public string Complemento { get; set; }
-        [JsonProperty("CNPJ")]
+        [JsonProperty("cnpj")]
         public string CNPJ { get; set; }
-        [JsonProperty("InscEstadual")]
+        [JsonProperty("inscEstadual")]
         public string Insc_Estadual { get; set; }
-        [JsonProperty("Fone")]
+        [JsonProperty("fone")]
         public string Fone { get; set; }
-        [JsonProperty("Fax")]
+        [JsonProperty("fax")]
         public string Fax { get; set; }
-        [JsonProperty("Email")]
+        [JsonProperty("email")]
         public string Email { get; set; }
-        [JsonProperty("Obs")]
+        [JsonProperty("obs")]
         public string Obs { get; set; }
-        [JsonProperty("NumBanco")]
-        public string Num_Banco { get; set; }
-        [JsonProperty("NomeBanco")]
-        public string Nome_Banco { get; set; }
-        [JsonProperty("NumAgencia")]
-        public string Num_Agencia { get; set; }
-        [JsonProperty("NumConta")]
-        public string Num_Conta { get; set; }
-        [JsonProperty("NomeTitular")]
-        public string Nome_Titular { get; set; }
-        [JsonProperty("CPF")]
-        public string CPF { get; set; }
-        [JsonProperty("NomeDepositante")]
-        public string Nome_Despositante { get; set; }
-        [JsonProperty("Marcar")]
-        public string Marcar { get; set; }
-        [JsonProperty("IdEmpresa")]
-        public int? Id_Tipo_Empresa { get; set; }
+
+        //[JsonProperty("NumBanco")]
+        //public string Num_Banco { get; set; }
+        //[JsonProperty("NomeBanco")]
+        //public string Nome_Banco { get; set; }
+        //[JsonProperty("NumAgencia")]
+        //public string Num_Agencia { get; set; }
+        //[JsonProperty("NumConta")]
+        //public string Num_Conta { get; set; }
+        //[JsonProperty("NomeTitular")]
+        //public string Nome_Titular { get; set; }
+        //[JsonProperty("CPF")]
+        //public string CPF { get; set; }
+        //[JsonProperty("NomeDepositante")]
+        //public string Nome_Despositante { get; set; }
+        //[JsonProperty("Marcar")]
+        //public string Marcar { get; set; }
+        //[JsonProperty("IdEmpresa")]
+        //public int? Id_Tipo_Empresa { get; set; }
     }
 }

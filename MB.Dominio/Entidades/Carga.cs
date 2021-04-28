@@ -129,5 +129,30 @@ namespace MB.Dominio.Entidades
 
         [JsonProperty("nomeUsina")]
         public string Nome_Usina { get; set; }
+
+        [JsonProperty("codCliente")]
+        public int? Cod_Cliente { get; set; }
+
+        [JsonProperty("codFor")]
+        public int? Cod_For { get; set; }
+
+        [JsonProperty("codContato")]
+        public int? Cod_Contato { get; set; }
+
+        [JsonProperty("codMotorista")]
+        public int? Cod_Motorista { get; set; }
+
+        [JsonProperty("codManifesto")]
+        public int? Cod_Manifesto { get; set; }
+
+        [JsonProperty("idUnidade")]
+        public int? Id_Unidade { get; set; }
+
+        [JsonProperty("idContaBanco")]
+        public int? Id_Conta_Banco { get; set; }
+
+        [JsonProperty("codUsina")]
+        public int? Cod_Usina { get; set; }
+
     }
 }

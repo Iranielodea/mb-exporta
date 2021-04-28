@@ -42,6 +42,8 @@ namespace MB.Dominio.Servicos
                     .ToList();
             }
 
+            var propriedade = new PropriedadeRef();
+
             foreach (var pedido in lista)
             {
                 pedido.Nome_Contato = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Nome_Contato);
@@ -49,6 +51,8 @@ namespace MB.Dominio.Servicos
                 pedido.Nome_Usina = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Nome_Usina);
                 pedido.Nome_Vendedor = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Nome_Vendedor);
                 pedido.Obs = Funcoes.ObterStringSemAcentosECaracteresEspeciais(pedido.Obs);
+
+                propriedade.GetPropertyValues(pedido);
                 //pedido.Data = DateTime.Parse("01/01/2015");
             }
 

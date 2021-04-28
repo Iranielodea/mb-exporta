@@ -26,6 +26,8 @@ namespace MB.Dominio.Servicos
             //var lista = _repositorio.GetAll().Where(x => x.ExportarNet == "S").ToList();
             var lista = _repositorio.GetAll();
 
+            var propriedade = new PropriedadeRef();
+
             foreach (var tra in lista)
             {
                 tra.Nome_Banco = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.Nome_Banco);
@@ -35,6 +37,8 @@ namespace MB.Dominio.Servicos
                 tra.NomeCidade = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.NomeCidade);
                 tra.Obs = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.Obs);
                 tra.Contato = Funcoes.ObterStringSemAcentosECaracteresEspeciais(tra.Contato);
+
+                propriedade.GetPropertyValues(tra);
             }
 
             string nomeArquivo = "transportadora.txt";

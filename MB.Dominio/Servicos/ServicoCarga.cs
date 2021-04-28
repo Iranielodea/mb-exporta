@@ -40,6 +40,9 @@ namespace MB.Dominio.Servicos
                 lista = _repositorio.GetAll().ToList();
             else
             {
+                //var lst = _repositorio.Filtrar(dataInicial, dataFinal);
+                //lista = lst.Where(x => x.Id_Carga == 28).ToList();
+
                 lista = _repositorio.Filtrar(dataInicial, dataFinal)
                     .ToList();
             }

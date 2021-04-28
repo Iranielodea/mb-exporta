@@ -17,12 +17,12 @@ namespace MB.UI
             string _id = "0";
 
 
-            _tabela = "CONTAS";
+            //_tabela = "PEDIDO";
             //string _tabela = "CLIENTE";
-            _acao = "EXPORTAR";
-            _id = "1";
-            _dataInicial = "01.07.2010";
-            _dataFinal = "31.12.2010";
+            //_acao = "EXPORTAR";
+            //_id = "1";
+            //_dataInicial = "07.01.2008";
+            //_dataFinal = "07.01.2008";
 
             if (args.Count() > 0)
             {
